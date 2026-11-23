@@ -373,3 +373,9 @@ details p{margin:.6rem 0 0}
 .price img{height:72px;width:auto;margin:0 auto .5rem}
 @media (min-width:721px){.phero .wrap{padding-right:clamp(1.5rem,24vw,320px)}}
 .illu-sec{background:#FDF6ED}
+/* Colonnes : autoriser les contenus (formulaires, e-mails) à rétrécir sur petit écran */
+.grid2>*,.grid3>*,.row2>*{min-width:0}
+@media (max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.dl dd,.ft address{overflow-wrap:anywhere}
+.field select{max-width:100%;min-width:0}
+@media (max-width:600px){.dl{grid-template-columns:1fr;gap:.1rem}.dl dd{margin-bottom:.7rem}}
