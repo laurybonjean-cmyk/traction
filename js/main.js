@@ -4,22 +4,41 @@
   var hdr = document.getElementById('hdr'),
       nav = document.getElementById('nav'),
       burger = document.getElementById('burger'),
-      hs = document.getElementById('hs'),
-      sb = hs && hs.querySelector('.sb');
+      subs = [].slice.call(document.querySelectorAll('.has-sub'));
 
-  /* Menu burger + sous-menu L'ATELIER */
+  /* Menu burger */
   burger.addEventListener('click', function () {
     var o = nav.classList.toggle('open');
     burger.setAttribute('aria-expanded', o);
     burger.setAttribute('aria-label', o ? 'Fermer le menu' : 'Ouvrir le menu');
   });
-  function closeSub() { hs.classList.remove('open'); sb.setAttribute('aria-expanded', 'false'); }
-  sb.addEventListener('click', function () {
-    var o = hs.classList.toggle('open');
-    sb.setAttribute('aria-expanded', o);
+
+  /* Sous-menus (L'atelier, La coopérative) : un seul ouvert à la fois */
+  function closeSub(li) { li.classList.remove('open'); li.querySelector('.sb').setAttribute('aria-expanded', 'false'); }
+  subs.forEach(function (li) {
+    var sb = li.querySelector('.sb');
+    sb.addEventListener('click', function () {
+      var o = !li.classList.contains('open');
+      subs.forEach(closeSub);
+      if (o) { li.classList.add('open'); sb.setAttribute('aria-expanded', 'true'); }
+    });
   });
-  document.addEventListener('click', function (e) { if (!hs.contains(e.target)) closeSub(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSub(); });
+  document.addEventListener('click', function (e) {
+    subs.forEach(function (li) { if (!li.contains(e.target)) closeSub(li); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') subs.forEach(closeSub); });
+
+  /* Logo de financeur absent : on affiche son nom à la place */
+  [].forEach.call(document.querySelectorAll('img[data-logo]'), function (img) {
+    function ko() { var t = document.createElement('span'); t.className = 'ptxt'; t.textContent = img.alt; img.replaceWith(t); }
+    if (img.complete && !img.naturalWidth) ko(); else img.addEventListener('error', ko);
+  });
+
+  /* Images absentes (data-fallback) : on garde le fond coloré */
+  [].forEach.call(document.querySelectorAll('img[data-fallback]'), function (img) {
+    function ko() { img.remove(); }
+    if (img.complete && !img.naturalWidth) ko(); else img.addEventListener('error', ko);
+  });
 
   /* Carrousel d'actualités (boucle aux extrémités) */
   var track = document.getElementById('track');
@@ -38,8 +57,8 @@
     });
   }
 
-  /* Diaporama d'accueil : défilement auto (6 s), pause au survol / focus / bouton,
-     clavier (flèches), glisser sur mobile, désactivé si « réduire les animations ». */
+  /* Diaporama d'accueil : lecture automatique (6 s). Pause uniquement avec le bouton
+     ou pendant la navigation au clavier dans le diaporama. Flèches, points, glisser sur mobile. */
   var sl = document.getElementById('slider');
   if (sl) (function () {
     var slides = [].slice.call(sl.querySelectorAll('.slide')),
@@ -48,7 +67,7 @@
         playBtn = document.getElementById('sl-play'),
         rm = window.matchMedia('(prefers-reduced-motion: reduce)'),
         cur = 0, timer = null, DELAY = 6000,
-        userPaused = rm.matches, hover = false, focus = false;
+        userPaused = false, focus = false;
 
     /* Photo absente : on garde le fond coloré et le picto */
     slides.forEach(function (s) {
@@ -71,7 +90,7 @@
     }
     function schedule() {
       clearTimeout(timer);
-      if (!userPaused && !hover && !focus && !document.hidden) timer = setTimeout(function () { go(cur + 1); }, DELAY);
+      if (!userPaused && !focus && !document.hidden) timer = setTimeout(function () { go(cur + 1); }, DELAY);
     }
     function setPaused(p) {
       userPaused = p;
@@ -85,8 +104,6 @@
     dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i, true); }); });
     playBtn.addEventListener('click', function () { setPaused(!userPaused); });
 
-    sl.addEventListener('mouseenter', function () { hover = true; schedule(); });
-    sl.addEventListener('mouseleave', function () { hover = false; schedule(); });
     sl.addEventListener('focusin', function () { focus = true; schedule(); });
     sl.addEventListener('focusout', function (e) { if (!sl.contains(e.relatedTarget)) { focus = false; schedule(); } });
     sl.addEventListener('keydown', function (e) {
@@ -105,11 +122,39 @@
     setPaused(userPaused);
   })();
 
+  /* Zoom lent des photos à leur apparition */
+  var kbs = [].slice.call(document.querySelectorAll('.kb'));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var kio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('kb-in'); kio.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    kbs.forEach(function (el) { kio.observe(el); });
+  } else { kbs.forEach(function (el) { el.classList.add('kb-in'); }); }
+
+  /* Carte Google Maps : chargée seulement après un clic (cookies Google) */
+  [].forEach.call(document.querySelectorAll('.gmap'), function (box) {
+    var btn = box.querySelector('button');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = box.getAttribute('data-src');
+      f.title = 'Carte : La Traction, 19 passage de l’Internationale, Lille';
+      f.loading = 'lazy';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      f.allowFullscreen = true;
+      box.innerHTML = '';
+      box.appendChild(f);
+      box.classList.add('on');
+      f.focus();
+    });
+  });
+
   /* Parallaxe : requestAnimationFrame + IntersectionObserver.
      La position est lue sur le parent (jamais transformé) pour éviter toute boucle de rétroaction. */
   var els = [].slice.call(document.querySelectorAll('[data-speed]')),
       visible = new Set(), queued = false,
-      reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      reduce = window.matchMedia('(prefers-reduced-motion: reduce)'),
+      SLOW = 0.45;  /* vitesse de la parallaxe : 1 = d'origine, plus petit = plus lent */
   function disabled() { return reduce.matches; }
 
   function update() {
@@ -120,7 +165,7 @@
     visible.forEach(function (el) {
       var r = el.parentElement.getBoundingClientRect(),
           p = (r.top + r.height / 2 - vh / 2) / vh,           // ~ -1 .. 1
-          k = window.innerWidth < 720 ? 0.5 : 1,
+          k = (window.innerWidth < 720 ? 0.5 : 1) * SLOW,
           y = -p * parseFloat(el.dataset.speed) * vh * k,
           z = el.dataset.zoom ? 1 + parseFloat(el.dataset.zoom) * (1 - Math.min(1, Math.abs(p))) * k : 1;
       el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)' + (z !== 1 ? ' scale(' + z.toFixed(3) + ')' : '');
@@ -143,7 +188,7 @@
   /* Effets d'apparition : IntersectionObserver, délais échelonnés entre frères */
   (function () {
     if (reduce.matches) return;
-    var groups = ['.photo', '.lieu .txt > *', '.box', '.band h2', '.cards .card',
+    var groups = ['.photo', '.plist li', '.post', '.illu', '.gallery figure', '.lieu .txt > *', '.box', '.band h2', '.cards .card',
       '.news h2', '.news .car', '.phero .wrap > *',
       '.sec .wrap > h2', '.sec .wrap > .intro', '.sec .wrap > .note', '.sec .wrap > table', '.sec .wrap > details',
       '.grid3 > *', '.grid2 > *', '.cta-band div > *', '.ft .cols > *'];
