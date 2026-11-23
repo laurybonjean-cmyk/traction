@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Traction – Un lieu pour créer, réparer, faire durer à Lille</title>
+<meta name="description" content="La Traction, coopérative lilloise : atelier de couture et de réparation textile, cours de couture et boutique de créateurs et d’artisans locaux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js"</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="hdr" id="hdr">
+  <div class="wrap bar">
+    <a class="logo" href="index.html" aria-label="La Traction, accueil">
+      <img class="mag" src="img/logo-aimant.png" alt="">
+      <img class="mot" src="img/logo-mot.png" alt="la traction – un lieu pour créer, réparer, faire durer">
+    </a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="boutique.html">La boutique</a></li>
+        <li class="has-sub" id="hs">
+          <button class="sb" type="button" aria-expanded="false" aria-controls="sub">L’atelier <span class="chev" aria-hidden="true">▾</span></button>
+          <ul class="sub" id="sub">
+            <li><a href="atelier-rdv.html">RDV</a></li>
+            <li><a href="atelier-tarifs.html">Tarifs</a></li>
+          </ul>
+        </li>
+        <li><a href="cooperative.html">La coopérative</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="cta" href="rejoindre.html">Rejoindre le collectif</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <!-- Diaporama d'accueil : remplacer img/diapo-1.jpg … img/diapo-4.jpg par vos photos (format paysage, 1920×1080 conseillé) -->
+  <section class="slider" id="slider" aria-roledescription="carrousel" aria-labelledby="t-hero">
+    <h1 id="t-hero" class="sr">La Traction, coopérative lilloise : atelier de couture et boutique de créateurs</h1>
+    <div class="slides" id="slides" aria-live="off">
+      <div class="slide on" role="group" aria-roledescription="diapositive" aria-label="1 sur 4" style="--g:linear-gradient(135deg,#4749EC,#23246f)">
+        <div class="sl-bg"><img src="img/diapo-1.jpg" alt="Façade et vitrine de La Traction à Lille"></div>
+        <img class="sl-deco" src="img/logo-aimant.png" alt="">
+        <div class="cap"><h2>Créer, réparer, faire durer</h2><p>Une coopérative lilloise qui réunit un atelier de couture et une boutique de créateurs locaux.</p><a class="btn" href="cooperative.html">Découvrir la coopérative</a></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 4" style="--g:linear-gradient(135deg,#D5463E,#EE7A3C)">
+        <div class="sl-bg"><img src="img/diapo-2.jpg" alt="Une couturière reprise un vêtement à la machine à coudre"></div>
+        <img class="sl-deco" src="img/picto-reparer.png" alt="">
+        <div class="cap"><h2>L’atelier couture</h2><p>Retouches, réparations textile et machines à coudre partagées pour donner une seconde vie à vos vêtements.</p><a class="btn" href="atelier-rdv.html">Prendre rendez-vous</a></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 4" style="--g:linear-gradient(135deg,#F8BC50,#D5463E)">
+        <div class="sl-bg"><img src="img/diapo-3.jpg" alt="Étagères de la boutique garnies de créations d’artisans locaux"></div>
+        <img class="sl-deco" src="img/picto-faire-durer.png" alt="">
+        <div class="cap"><h2>La boutique des créateurs</h2><p>Des pièces uniques fabriquées par des artisans et créateurs de la région lilloise.</p><a class="btn" href="boutique.html">Visiter la boutique</a></div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="diapositive" aria-label="4 sur 4" style="--g:linear-gradient(135deg,#AFC5DA,#4749EC)">
+        <div class="sl-bg"><img src="img/diapo-4.jpg" alt="Un cours de couture collectif autour d’une grande table"></div>
+        <img class="sl-deco" src="img/picto-creer.png" alt="">
+        <div class="cap"><h2>Cours de couture pour tous</h2><p>De l’ourlet à la création de vêtements, on apprend ensemble, à son rythme.</p><a class="btn" href="atelier-tarifs.html">Voir les tarifs</a></div>
+      </div>
+    </div>
+    <div class="sl-ctrl">
+      <button type="button" class="sl-btn" id="sl-play" aria-label="Mettre le diaporama en pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M8 5v14M16 5v14"/><path class="i-play" d="M7 5l12 7-12 7z"/></svg></button>
+      <button type="button" class="sl-btn" id="sl-prev" aria-label="Diapositive précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4L7 12l8 8"/></svg></button>
+      <div class="dots">
+        <button type="button" class="dot" aria-label="Afficher la diapositive 1" aria-current="true"></button>
+        <button type="button" class="dot" aria-label="Afficher la diapositive 2"></button>
+        <button type="button" class="dot" aria-label="Afficher la diapositive 3"></button>
+        <button type="button" class="dot" aria-label="Afficher la diapositive 4"></button>
+      </div>
+      <button type="button" class="sl-btn" id="sl-next" aria-label="Diapositive suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
+    </div>
+    <svg class="waves" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 48C130 14 270 40 350 90S500 178 570 200H0Z" fill="#4749EC"/>
+      <path d="M500 200C640 82 800 62 960 92S1290 96 1440 34V200Z" fill="#F8BC50"/>
+      <path d="M590 196C660 112 790 86 900 112S1130 142 1250 96" fill="none" stroke="#1A1A1A" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>
+  </section>
+  <div class="zebra" aria-hidden="true"></div>
+
+  <!-- L'art du lieu -->
+  <section class="lieu" aria-labelledby="t-lieu">
+    <div class="wrap grid">
+      <div class="photo sq"><div class="plx" data-speed=".1" data-zoom=".1"><img src="img/artisan.jpg" alt="Une couturière répare un vêtement à la machine à coudre" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="txt" data-speed="-.07">
+        <h2 id="t-lieu">L’art du lieu : coudre, réparer, partager</h2>
+        <p class="lead">Un lieu unique à Lille pour réparer ses vêtements, apprendre à coudre et soutenir la création locale.</p>
+        <p class="t">La Traction est une coopérative de l’économie sociale et solidaire. Elle réunit un atelier de couture et de réparation textile, et une boutique où exposent des créateurs et des artisans de la région.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ateliers et événements -->
+  <section class="events" aria-labelledby="t-events">
+    <div class="bg"><div class="plx" data-speed=".1" data-zoom=".08"><img src="img/evenement.jpg" alt="" loading="lazy" onerror="this.remove()"></div></div>
+    <svg class="ribbons" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMid slice" fill="none" stroke-width="22" stroke-linecap="round" aria-hidden="true">
+      <path d="M-20 150C120 120 190 230 300 250" stroke="#EE7A3C"/>
+      <path d="M-20 300C110 270 170 400 330 400" stroke="#4749EC"/>
+      <path d="M1460 330C1330 300 1270 400 1150 420" stroke="#EE7A3C"/>
+      <path d="M1460 440C1340 430 1290 500 1160 505" stroke="#F4A59A"/>
+    </svg>
+    <div class="box" data-speed="-.07">
+      <h2 id="t-events">Ateliers et événements fédérateurs</h2>
+      <p>De l’ourlet à la reprise invisible, jusqu’à la création de vêtements dans des tissus de récupération, nos ateliers de couture s’adressent à tous les niveaux. Marchés de créateurs et cafés couture rassemblent aussi notre communauté.</p>
+    </div>
+  </section>
+
+  <!-- Nos missions -->
+  <div class="band"><h2>Nos missions</h2></div>
+  <section class="missions" aria-label="Nos missions">
+    <div class="wrap cards" data-speed=".04">
+      <article class="card" style="--c:var(--brick)"><img src="img/picto-reparer.png" alt="" loading="lazy"><h3>L’atelier couture</h3><p>Retouches, réparations textile et machines à coudre partagées pour faire durer vos vêtements.</p></article>
+      <article class="card" style="--c:var(--cobalt)"><img src="img/picto-creer.png" alt="" loading="lazy"><h3>Les cours de couture</h3><p>Apprenez à réparer, retoucher et créer vos vêtements, du premier point à la pièce finie.</p></article>
+      <article class="card" style="--c:var(--mustard)"><img src="img/picto-faire-durer.png" alt="" loading="lazy"><h3>La boutique des créateurs</h3><p>Des pièces uniques fabriquées par des artisans et des créateurs de la région lilloise.</p></article>
+    </div>
+  </section>
+
+  <!-- Dernières actualités -->
+  <section class="news" aria-labelledby="t-news">
+    <div class="wrap" data-speed="-.035">
+      <h2 id="t-news">Dernières Actualités</h2>
+      <div class="car">
+        <button class="arr l" id="prev" type="button" aria-label="Actualités précédentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4L7 12l8 8"/></svg></button>
+        <div class="track" id="track" tabindex="0" aria-label="Carrousel d’actualités">
+          <figure class="item"><div class="ph" style="--g:linear-gradient(135deg,#AFC5DA,#F8BC50)"><img src="img/actu-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><figcaption>Atelier « réparer son jean »</figcaption></figure>
+          <figure class="item"><div class="ph" style="--g:linear-gradient(135deg,#F4A59A,#4749EC)"><img src="img/actu-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><figcaption>Portes ouvertes 2026</figcaption></figure>
+          <figure class="item"><div class="ph" style="--g:linear-gradient(135deg,#F8BC50,#D5463E)"><img src="img/actu-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><figcaption>Nouveaux créateurs en boutique</figcaption></figure>
+          <figure class="item"><div class="ph" style="--g:linear-gradient(135deg,#4749EC,#AFC5DA)"><img src="img/actu-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><figcaption>Café couture du premier samedi</figcaption></figure>
+          <figure class="item"><div class="ph" style="--g:linear-gradient(135deg,#D5463E,#F4A59A)"><img src="img/actu-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><figcaption>Rencontre des membres de la coopérative</figcaption></figure>
+        </div>
+        <button class="arr r" id="next" type="button" aria-label="Actualités suivantes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <svg class="ft-waves" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 200V96C140 62 300 88 430 142S580 190 620 200Z" fill="#4749EC"/>
+    <path d="M560 200C690 96 850 74 1010 104S1320 120 1440 56V200Z" fill="#F8BC50"/>
+    <path d="M640 190C720 118 850 96 960 120S1200 146 1320 96" fill="none" stroke="#1A1A1A" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>
+  <div class="ft">
+    <div class="cols">
+      <div class="brand">
+        <img src="img/logo-mot.png" alt="la traction">
+        <address>Un lieu pour créer, réparer, faire durer.<br>[Adresse à compléter]<br>59000 Lille</address>
+      </div>
+      <div><h3>Explorer</h3><ul>
+        <li><a href="boutique.html">La boutique</a></li>
+        <li><a href="atelier-rdv.html">Atelier : RDV</a></li>
+        <li><a href="atelier-tarifs.html">Atelier : tarifs</a></li>
+        <li><a href="cooperative.html">La coopérative</a></li></ul></div>
+      <div><h3>S’engager</h3><ul>
+        <li><a href="rejoindre.html">Rejoindre le collectif</a></li>
+        <li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3>Nous suivre</h3><ul>
+        <li><a href="#" rel="noopener">Instagram</a></li>
+        <li><a href="#" rel="noopener">Facebook</a></li>
+        <li><a href="#" rel="noopener">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="legal">© 2026 La Traction, coopérative à Lille · <a href="mentions-legales.html">Mentions légales</a></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

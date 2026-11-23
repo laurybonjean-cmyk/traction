@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact – La Traction</title>
+<meta name="description" content="Contactez La Traction, coopérative à Lille : formulaire, coordonnées et accès.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js"</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="hdr" id="hdr">
+  <div class="wrap bar">
+    <a class="logo" href="index.html" aria-label="La Traction, accueil">
+      <img class="mag" src="img/logo-aimant.png" alt="">
+      <img class="mot" src="img/logo-mot.png" alt="la traction – un lieu pour créer, réparer, faire durer">
+    </a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="boutique.html">La boutique</a></li>
+        <li class="has-sub" id="hs">
+          <button class="sb" type="button" aria-expanded="false" aria-controls="sub">L’atelier <span class="chev" aria-hidden="true">▾</span></button>
+          <ul class="sub" id="sub">
+            <li><a href="atelier-rdv.html">RDV</a></li>
+            <li><a href="atelier-tarifs.html">Tarifs</a></li>
+          </ul>
+        </li>
+        <li><a href="cooperative.html">La coopérative</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+      <a class="cta" href="rejoindre.html">Rejoindre le collectif</a>
+    </nav>
+  </div>
+</header>
+<main id="contenu">
+<section class="phero cobalt" aria-labelledby="t-page">
+  <div class="wrap" data-speed=".06"><h1 id="t-page">Contact</h1><p>Une question, un projet, une envie de passer nous voir ? Écrivez-nous.</p></div>
+  <svg class="spark ps1" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30L16 20M22 28V10M34 32L28 18"/></svg><svg class="sun2" viewBox="0 0 300 340" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" aria-hidden="true" style="opacity:.35"><path d="M120 63L102 8M67 101L21 65M43 170H-15"/><circle cx="170" cy="170" r="74" fill="currentColor" stroke="none"/></svg><svg class="phero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C180 10 340 20 520 56S900 100 1100 60 1330 10 1440 40V100H0Z" fill="#FBF6EE"/></svg>
+</section>
+<section class="sec"><div class="wrap grid2" data-speed=".035">
+  <div class="panel"><h3>Écrivez-nous</h3><form class="form" id="f-contact" data-mail="contact@la-traction.example" data-subject="Message depuis le site La Traction" data-sent="s-contact" novalidate>
+  <div class="row2"><div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" required ><span class="err">Ce champ est obligatoire.</span></div><div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required ><span class="err">Saisissez une adresse e-mail valide.</span></div></div>
+  <div class="field"><label for="sujet">Sujet</label><select id="sujet" name="sujet" required><option value="">Choisir…</option><option>Atelier couture et réparation textile</option><option>Boutique des créateurs</option><option>Adhésion et bénévolat</option><option>Autre</option></select><span class="err">Choisissez une option.</span></div>
+  <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea><span class="err">Ce champ est obligatoire.</span></div>
+  <p class="rgpd">Vos informations servent uniquement à vous répondre. <a href="mentions-legales.html#donnees">En savoir plus sur vos données</a>.</p>
+  <button class="btn" type="submit">Préparer mon message</button>
+</form><div class="sent" id="s-contact" role="status"><h3>Votre demande est prête</h3><p>Vérifiez le récapitulatif puis envoyez-le depuis votre messagerie.</p><pre></pre><a class="btn" href="#">Envoyer par e-mail</a><p style="margin:1rem 0 0">Le bouton ne s’ouvre pas ? Copiez ce texte et envoyez-le à <strong class="addr"></strong>.</p></div></div>
+  <div>
+    <div class="panel"><h3>Coordonnées</h3><p class="note">À compléter par la coopérative.</p>
+      <dl class="dl"><dt>Adresse</dt><dd>[Adresse à compléter], 59000 Lille</dd><dt>E-mail</dt><dd><a href="mailto:contact@la-traction.example">contact@la-traction.example</a></dd><dt>Téléphone</dt><dd>[Numéro à compléter]</dd><dt>Horaires</dt><dd>[Horaires à compléter]</dd><dt>Accès</dt><dd>[Transports, vélo, stationnement]</dd></dl></div>
+    <div class="map" style="margin-top:1.5rem"><div><img src="img/logo-aimant.png" alt=""><p>Plan d’accès à ajouter</p></div></div>
+  </div>
+</div></section>
+</main>
+<footer>
+  <svg class="ft-waves" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 200V96C140 62 300 88 430 142S580 190 620 200Z" fill="#4749EC"/>
+    <path d="M560 200C690 96 850 74 1010 104S1320 120 1440 56V200Z" fill="#F8BC50"/>
+    <path d="M640 190C720 118 850 96 960 120S1200 146 1320 96" fill="none" stroke="#1A1A1A" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>
+  <div class="ft">
+    <div class="cols">
+      <div class="brand">
+        <img src="img/logo-mot.png" alt="la traction">
+        <address>Un lieu pour créer, réparer, faire durer.<br>[Adresse à compléter]<br>59000 Lille</address>
+      </div>
+      <div><h3>Explorer</h3><ul>
+        <li><a href="boutique.html">La boutique</a></li>
+        <li><a href="atelier-rdv.html">Atelier : RDV</a></li>
+        <li><a href="atelier-tarifs.html">Atelier : tarifs</a></li>
+        <li><a href="cooperative.html">La coopérative</a></li></ul></div>
+      <div><h3>S’engager</h3><ul>
+        <li><a href="rejoindre.html">Rejoindre le collectif</a></li>
+        <li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3>Nous suivre</h3><ul>
+        <li><a href="#" rel="noopener">Instagram</a></li>
+        <li><a href="#" rel="noopener">Facebook</a></li>
+        <li><a href="#" rel="noopener">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="legal">© 2026 La Traction, coopérative à Lille · <a href="mentions-legales.html">Mentions légales</a></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+</body>
+</html>
