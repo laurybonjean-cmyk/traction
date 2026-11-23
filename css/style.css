@@ -206,7 +206,8 @@ a{color:inherit}
 .sec .intro{max-width:56ch;margin:0 0 2rem;font-size:1.1rem}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
-@media (max-width:860px){.grid3,.grid2{grid-template-columns:1fr}}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+@media (max-width:680px){.grid3{grid-template-columns:1fr}}
 .tile{background:var(--cream);border:3px solid var(--c,var(--ink));border-radius:22px;padding:1.6rem 1.4rem 1.8rem}
 .tile img{height:84px;width:auto;margin-bottom:.9rem}
 .tile h3{font-size:1.8rem;margin-bottom:.5rem}
@@ -368,7 +369,7 @@ details p{margin:.6rem 0 0}
 .phero-picto{position:absolute;right:clamp(1.5rem,10vw,9rem);top:50%;height:clamp(110px,15vw,190px);width:auto;transform:translateY(-58%);pointer-events:none}
 .phero.brick .phero-picto,.phero.cobalt .phero-picto{filter:invert(1);opacity:.85}
 .phero.mustard .phero-picto{opacity:.8}
-@media (max-width:720px){.phero-picto{top:1rem;right:1rem;height:64px;transform:none;opacity:.35!important}}
+@media (max-width:720px){.phero-picto{display:none}}
 .price img{height:72px;width:auto;margin:0 auto .5rem}
 @media (min-width:721px){.phero .wrap{padding-right:clamp(1.5rem,24vw,320px)}}
 .illu-sec{background:#FDF6ED}
